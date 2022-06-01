@@ -6,7 +6,7 @@ var dotenv = require('dotenv').config()
 const client_id = process.env.client_id 
 const client_secret = process.env.secret 
 const redirect_uri = 'http://localhost:3000/'
-const scope = 'user-top-read user-library-read' //<- needs to be updated based on what you want to dogit 
+const scope = 'user-top-read user-library-read' //<- needs to be updated based on what you want to do
 
 router.get("/", async (req, res, next) => {
     try {
@@ -22,7 +22,6 @@ router.get("/", async (req, res, next) => {
 router.get("/callback", async(req, res, next) => {
     try {
         const code = req.query.code
-        //console.log(req.query)
         const url = "https://accounts.spotify.com/api/token?grant_type=authorization_code&code=" + code + "&redirect_uri=" + redirect_uri
         const headers = {
             'Authorization': 'Basic ' + Buffer.from(client_id + ':' + client_secret, 'utf8').toString('base64'),
@@ -30,9 +29,8 @@ router.get("/callback", async(req, res, next) => {
         }
         fetch(url, {method: 'post', headers: headers}).catch(err => console.log(err))
         .then(res => res.json()).then(data => {
-            //console.log(data)
+            console.log(data)
             obj = {
-                url: 'http://localhost:3000/home',
                 token: data.access_token
             }
             return obj

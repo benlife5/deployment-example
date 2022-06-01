@@ -25,11 +25,9 @@ function Login() {
             fetch('http://localhost:9000/auth/callback?code='+code).then(res => res.json()).then(data => {
                 if(data.token){
                     setAccessToken(data.token)
-                    //console.log(data.token)
                     navigate('/home')
                 }
-           //setAccessToken(data.access_token)
-           //setRefreshToken(data.refresh_token)    
+               
         })
     }
     }, [])
