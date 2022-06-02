@@ -11,6 +11,7 @@ var userRouter = require('./routes/user')
 var messagesRouter = require('./routes/messages')
 
 var app = express();
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +30,7 @@ app.use('/user', userRouter);
 app.use('/messages', messagesRouter);
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+
 
 
 // catch 404 and forward to error handler
