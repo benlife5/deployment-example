@@ -12,7 +12,6 @@ var messagesRouter = require('./routes/messages')
 
 var app = express();
 app.use(cors({ origin: true }));
-app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
