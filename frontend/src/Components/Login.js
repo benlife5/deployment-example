@@ -11,7 +11,7 @@ function Login() {
     const { accessToken, setAccessToken } = useContext(AccessTokenContext);
     
     const onClick = (e) => {
-        fetch("http://localhost:9000/auth").then(res => res.json())
+        fetch("auth").then(res => res.json())
         .then(data => {
             window.open(data.url)
         })
@@ -22,7 +22,7 @@ function Login() {
     useEffect(()=> {
         if(path){
             code = path.split('=')[1]
-            fetch('http://localhost:9000/auth/callback?code='+code).then(res => res.json()).then(data => {
+            fetch('auth/callback?code='+code).then(res => res.json()).then(data => {
                 if(data.token){
                     setAccessToken(data.token)
                     navigate('/home')
