@@ -11,6 +11,7 @@ var userRouter = require('./routes/user')
 var messagesRouter = require('./routes/messages')
 
 var app = express();
+app.use(cors({ origin: true }));
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // view engine setup
@@ -22,7 +23,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({ origin: true }));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
