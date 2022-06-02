@@ -5,7 +5,7 @@ var dotenv = require('dotenv').config()
 
 const client_id = process.env.client_id 
 const client_secret = process.env.secret 
-const redirect_uri = 'http://localhost:3000/'
+const redirect_uri = 'https://murmuring-everglades-03773.herokuapp.com'
 const scope = 'user-top-read user-library-read' //<- needs to be updated based on what you want to do
 
 router.get("/", async (req, res, next) => {
