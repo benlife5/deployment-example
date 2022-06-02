@@ -29,7 +29,7 @@ app.use('/user', userRouter);
 app.use('/messages', messagesRouter);
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 
 // catch 404 and forward to error handler
