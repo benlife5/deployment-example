@@ -7,7 +7,7 @@ var router = express.Router();
 const firebaseApp = initializeApp(
   {
     "type": "service_account",
-    "projectId": process.env.projectId,
+    "projectId": process.env.firebaseProjectId,
     "private_key_id": process.env.private_key_id,
     "private_key": process.env.private_key,
     "client_email": process.env.client_email,
